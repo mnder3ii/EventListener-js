@@ -7,6 +7,7 @@ for(var i = 0; i < nmofbutns; i++){
         var butninval = this.innerHTML;
 
         makeing_sound(butninval);
+        butanim(butninval);
 
     });
 
@@ -16,6 +17,7 @@ for(var i = 0; i < nmofbutns; i++){
 document.addEventListener("keydown", function (event) {
 
     makeing_sound(event.key);
+    butanim(event.key);
 
 });
 
@@ -65,4 +67,15 @@ function makeing_sound(key) {
     
 }
 
+function butanim(curkey) {
+    
+    var activeButton = document.querySelector("." + curkey);
+
+    activeButton.classList.add("pressed");
+
+    setTimeout(function(){ 
+        activeButton.classList.remove("pressed");
+    }, 150);
+
+}
 
